@@ -267,7 +267,7 @@
         <div class="row justify-content-center">
             <div class="title col-12 col-md-5">
                 
-                <h4 class="mbr-section-subtitle align-center mbr-fonts-style mb-4 display-7">© Copyright 2024 Maoyue - All Rights Reserved&nbsp;</h4>
+                <h4 class="mbr-section-subtitle align-center mbr-fonts-style mb-4 display-7">© Copyright 2024-<span id="currentYear"></span> Maoyue - All Rights Reserved&nbsp;</h4>
                 
             </div>
         </div>
@@ -275,6 +275,7 @@
 </section>
 
 
+<script>document.getElementById("currentYear").textContent = new Date().getFullYear();</script>
 <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/smoothscroll/smooth-scroll.js"></script>
   <script src="assets/ytplayer/index.js"></script>
