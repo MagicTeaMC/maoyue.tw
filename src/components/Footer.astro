@@ -1,0 +1,38 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+  <div class="container">
+      <p>GNU GPL-3.0 License and CC BY-NC-SA 4.0 License &copy; 2024-{currentYear} Maoyue. This website is <a href=https://github.com/MagicTeaMC/maoyue.tw target=_blank>open source</a> and built with <a href=https://astro.build target=_blank>Astro</a>.</p>
+  </div>
+</footer>
+
+<style>
+  footer {
+    padding: 3rem 0 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+  }
+
+  p {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 640px) {
+    footer {
+      padding: 2rem 0 1.5rem;
+    }
+
+    .container {
+      padding: 0 1.5rem;
+    }
+  }
+</style>
