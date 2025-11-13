@@ -1,0 +1,64 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout title={post.data.title}>
+  <Header />
+  <main>
+    <article class="post-content">
+      <h1>{post.data.title}</h1>
+      <time>{post.data.publishDate.toLocaleDateString('zh-TW')}</time>
+      <Content />
+    </article>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .post-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  time {
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 2rem;
+  }
+
+  .post-content :global(h2) {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .post-content :global(p) {
+    margin-bottom: 1rem;
+  }
+
+  .post-content :global(pre) {
+    padding: 1rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: 1rem 0;
+  }
+</style>
