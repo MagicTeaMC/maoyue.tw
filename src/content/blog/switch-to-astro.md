@@ -11,4 +11,4 @@ First, Astro can be modularization, so it only require a few change for adding a
 
 # Why blog?
 
-After years, I want to write something on my website again, but I might recover my old article first.
+After years, I want to write something on my website again, but I might recover my old article to this website first.
