@@ -1,0 +1,89 @@
+---
+const contacts = [
+  { platform: "Telegram", handle: "@Maoyue_OUO", url: "https://t.me/Maoyue_OUO" },
+  { platform: "Email", handle: "maoyue@maoyue.tw", url: "mailto:maoyue@maoyue.tw" },
+  { platform: "Discord", handle: "@magicteamc", url: "https://discord.com/users/1186853715135709256" },
+  { platform: "GitHub", handle: "@MagicTeaMC", url: "https://github.com/MagicTeaMC" },
+  { platform: "HuggingFace", handle: "@MaoyueOUO", url: "https://huggingface.co/MaoyueOUO" },
+  { platform: "BlueSky", handle: "@maoyue.tw", url: "https://bsky.app/profile/did:plc:oq6sc6ultnin5r4xlvdsooof" },
+  { platform: "X", handle: "@Maoyue_QwQ", url: "https://x.com/maoyue_qwq" },
+  { platform: "YouTube", handle: "@Maoyue_OUO", url: "https://youtube.com/@maoyue_ouo" },
+  { platform: "Mastodon", handle: "@maoyue@mas.to", url: "https://mas.to/@maoyue" },
+  { platform: "Reddit", handle: "u/Milkteacat_123", url: "https://www.reddit.com/u/Milkteacat_123/" }
+];
+---
+
+<section id="contact" class="contact">
+  <div class="container">
+    <h2>Contact</h2>
+    <div class="contact-grid">
+      {contacts.map((contact) => (
+        <div class="contact-item">
+          <span class="platform">{contact.platform}</span>
+          <a href={contact.url} target="_blank" rel="noopener noreferrer">
+            {contact.handle}
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    padding: 4rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .platform {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .contact-item a {
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 640px) {
+    .contact {
+      padding: 3rem 0;
+    }
+
+    .container {
+      padding: 0 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+    }
+
+    .contact-grid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1.25rem;
+    }
+  }
+</style>

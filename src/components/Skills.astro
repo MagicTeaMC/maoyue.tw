@@ -1,0 +1,93 @@
+---
+const skills = [
+  {
+    title: "Coding",
+    description: "I developed some Bukkit plugins via Java, and a few projects made by JavaScript, now I'm learning Rust. You can go to my GitHub page to see what I made."
+  },
+  {
+    title: "Minecraft Server Management",
+    description: "I maintain a small Minecraft server. I make some plugins and add many special gameplays for the server."
+  },
+  {
+    title: "Something Else",
+    description: "I like to try and challenge something I've never tried before, maybe I'm working on something new at this time?"
+  }
+];
+---
+
+<section id="skills" class="skills">
+  <div class="container">
+    <h2>What I Do</h2>
+    <div class="skills-grid">
+      {skills.map((skill) => (
+        <div class="skill-card">
+          <h3>{skill.title}</h3>
+          <p>{skill.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills {
+    padding: 4rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .skill-card {
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    transition: border-color 0.2s;
+  }
+
+  .skill-card:hover {
+    border-color: var(--accent);
+  }
+
+  .skill-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .skill-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 640px) {
+    .skills {
+      padding: 3rem 0;
+    }
+
+    .container {
+      padding: 0 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+    }
+
+    .skills-grid {
+      gap: 1.5rem;
+    }
+  }
+</style>
