@@ -21,7 +21,7 @@ const sortedPosts = posts.sort((a, b) =>
             <h2>
               <a href={`/blog/${post.slug}`}>{post.data.title}</a>
             </h2>
-            <time>{post.data.publishDate.toLocaleDateString('zh-TW')}</time>
+            <time>{post.data.publishDate.toLocaleDateString('en-US')}</time>
             <p>{post.data.description}</p>
             {post.data.tags && (
               <div class="tags">
