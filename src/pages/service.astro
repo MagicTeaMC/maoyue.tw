@@ -1,0 +1,156 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const services = [
+  {
+    title: "yue.lat",
+    description: "A simple and fast URL shortener service. Shorten your long URLs into concise links that are easy to share and remember.",
+    url: "https://yue.lat"
+  },
+  {
+    title: "SearXNG instance",
+    description: "SearXNG is a privacy-respecting, open metasearch engine, I host a instance for personal usage.",
+    url: "https://search.maoyue.tw"
+  },
+  {
+    title: "MilkteaMC (Traditional Chinese)",
+    description: "A small Minecraft server with custom plugins and special gameplays. Join our community and explore unique features!",
+    url: "https://www.milkteamc.org"
+  },
+];
+---
+
+<Layout title="Online Services - Maoyue">
+  <Header />
+  <main>
+    <section class="services">
+      <div class="container">
+        <h1>Online Services</h1>
+        <p class="intro">Services I run and maintain for the community</p>
+        
+        <div class="services-grid">
+          {services.map((service) => (
+            <a href={service.url} class="service-card" target="_blank" rel="noopener noreferrer">
+              <h2>{service.title}</h2>
+              <p>{service.description}</p>
+              <span class="visit-link">Visit →</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .services {
+    padding: 4rem 0;
+    min-height: calc(100vh - 200px);
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .intro {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .service-card {
+    display: block;
+    padding: 2rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: var(--bg);
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .service-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .service-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .service-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--text);
+  }
+
+  .service-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .visit-link {
+    display: inline-block;
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: transform 0.2s;
+  }
+
+  .service-card:hover .visit-link {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 640px) {
+    .services {
+      padding: 3rem 0;
+    }
+
+    .container {
+      padding: 0 1.5rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .intro {
+      font-size: 1rem;
+    }
+
+    .services-grid {
+      gap: 1.5rem;
+      grid-template-columns: 1fr;
+    }
+
+    .service-card {
+      padding: 1.5rem;
+    }
+  }
+</style>
