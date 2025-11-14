@@ -1,6 +1,3 @@
----
----
-
 <header>
   <nav>
     <div class="container">
@@ -8,6 +5,11 @@
         <img src="/favicon.png" alt="Maoyue" class="avatar" />
         <span>Maoyue</span>
       </a>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <ul class="nav-links">
         <li><a href="/#about">About</a></li>
         <li><a href="/#skills">Skills</a></li>
@@ -17,7 +19,6 @@
     </div>
   </nav>
 </header>
-
 <style>
   header {
     position: sticky;
@@ -26,11 +27,9 @@
     border-bottom: 1px solid var(--border);
     z-index: 100;
   }
-
   nav {
     padding: 1rem 0;
   }
-
   .container {
     max-width: 900px;
     margin: 0 auto;
@@ -38,8 +37,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
   }
-
   .logo {
     font-size: 1.25rem;
     font-weight: 600;
@@ -48,40 +47,106 @@
     align-items: center;
     gap: 0.75rem;
   }
-
   .avatar {
     width: 36px;
     height: 36px;
     border-radius: 50%;
     object-fit: cover;
   }
-
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .menu-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    transition: all 0.3s;
+  }
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
   .nav-links {
     display: flex;
     gap: 2rem;
     list-style: none;
   }
-
   .nav-links a {
     color: var(--text-muted);
     font-size: 0.95rem;
   }
-
   .nav-links a:hover {
     color: var(--accent);
   }
-
   @media (max-width: 640px) {
     .container {
       padding: 0 1.5rem;
     }
-
-    .nav-links {
-      gap: 1.5rem;
+    .menu-toggle {
+      display: flex;
+      z-index: 101;
     }
-
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      max-width: 300px;
+      height: 100vh;
+      background: var(--bg);
+      border-left: 1px solid var(--border);
+      flex-direction: column;
+      gap: 0;
+      padding: 5rem 0 2rem;
+      transition: right 0.3s ease;
+    }
+    .nav-links.active {
+      right: 0;
+    }
+    .nav-links li {
+      border-bottom: 1px solid var(--border);
+    }
     .nav-links a {
-      font-size: 0.9rem;
+      display: block;
+      padding: 1rem 2rem;
+      font-size: 1rem;
     }
   }
 </style>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    menuToggle?.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks?.classList.toggle('active');
+    });
+    
+    navLinks?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle?.classList.remove('active');
+        navLinks?.classList.remove('active');
+      });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('nav')) {
+        menuToggle?.classList.remove('active');
+        navLinks?.classList.remove('active');
+      }
+    });
+  });
+</script>
