@@ -1,7 +1,7 @@
 ---
 title: "Switch to Astro"
 description: "I switched my personal website to Astro"
-publishDate: 2025-11-14
+publishDate: 2025-11-13
 tags: ["astro", "english", "website"]
 ---
 
