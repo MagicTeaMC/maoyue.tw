@@ -5,7 +5,7 @@ publishDate: 2025-11-14
 tags: ["Rust", "English", "Viewpoint"]
 ---
 
-The RIIR (Rewrite it in Rust) version of sudo said it is more secure than original sudo, because it is written in Rust, a language known for it memory-safety. But the sudo project was first released around 1980s, after decades of development, it is now sufficiently stable and secure in most cases (If you think this is not enough for you, try out `doas`), there is not need to use a rewrite version of sudo.  
+The RIIR (Rewrite it in Rust) version of sudo said it is more secure than original sudo, because it is written in Rust, a language known for it memory-safety. But the sudo project was first released around 1980s, after decades of development, it is now sufficiently stable and secure in most cases (If you think this is not enough for you, try out `doas`), there is no need to use a rewritten version of sudo. 
 
 According to [It's FOSS](https://itsfoss.com/news/sudo-rs-issue-ubuntu/), two security issues have been found in sudo-rs, first one is password exposure during timeouts, second issue is that sudo-rs incorrectly recorded the wrong user ID in timestamps. Therefore, hackers can bypass authentication by exploit these issues.
 
