@@ -26,14 +26,14 @@ const skills = [
 <section id="skills" class="skills">
   <div class="container">
     <h2>What I Do</h2>
-    <div class="skills-grid">
+    <ul class="skills-list">
       {skills.map((skill) => (
-        <div class="skill-card">
+        <li class="skill-item">
           <h3>{skill.title}</h3>
           <p>{skill.description}</p>
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   </div>
 </section>
 
@@ -52,33 +52,36 @@ const skills = [
   h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
+    font-weight: 600;
   }
 
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+  .skills-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
-  .skill-card {
-    padding: 1.5rem;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    transition: border-color 0.2s;
+  .skill-item {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
   }
 
-  .skill-card:hover {
-    border-color: var(--accent);
+  .skill-item:last-child {
+    border-bottom: none;
   }
 
-  .skill-card h3 {
+  .skill-item h3 {
     font-size: 1.125rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text);
   }
 
-  .skill-card p {
+  .skill-item p {
     color: var(--text-muted);
     font-size: 0.95rem;
+    line-height: 1.6;
   }
 
   @media (max-width: 640px) {
@@ -94,8 +97,12 @@ const skills = [
       font-size: 1.75rem;
     }
 
-    .skills-grid {
-      gap: 1.5rem;
+    .skills-list {
+      gap: 1.25rem;
+    }
+
+    .skill-item {
+      padding: 1rem 0;
     }
   }
 </style>

@@ -27,18 +27,19 @@ const services = [
   <main>
     <section class="services">
       <div class="container">
-        <h1>Online Services</h1>
-        <p class="intro">Services I run and maintain for the community</p>
-        
-        <div class="services-grid">
+        <h2>Online Services</h2>
+        <ul class="services-list">
           {services.map((service) => (
-            <a href={service.url} class="service-card" target="_blank" rel="noopener noreferrer">
-              <h2>{service.title}</h2>
+            <li class="service-item">
+              <h3>
+                <a href={service.url} target="_blank" rel="noopener noreferrer">
+                  {service.title}
+                </a>
+              </h3>
               <p>{service.description}</p>
-              <span class="visit-link">Visit →</span>
-            </a>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   </main>
@@ -49,6 +50,7 @@ const services = [
   .services {
     padding: 4rem 0;
     min-height: calc(100vh - 200px);
+    border-top: 1px solid var(--border);
   }
 
   .container {
@@ -57,74 +59,48 @@ const services = [
     padding: 0 2rem;
   }
 
-  h1 {
-    font-size: 2.5rem;
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+  }
+
+  .services-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .service-item {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .service-item:last-child {
+    border-bottom: none;
+  }
+
+  .service-item h3 {
+    font-size: 1.125rem;
     margin-bottom: 0.5rem;
+    font-weight: 600;
   }
 
-  .intro {
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    margin-bottom: 3rem;
-  }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-  }
-
-  .service-card {
-    display: block;
-    padding: 2rem;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    background: var(--bg);
+  .service-item h3 a {
+    color: var(--accent);
     text-decoration: none;
-    color: var(--text);
+    transition: color 0.2s ease;
   }
 
-  .service-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  .service-item h3 a:hover {
+    color: var(--accent-hover);
   }
 
-  @media (prefers-color-scheme: dark) {
-    .service-card:hover {
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-  }
-
-  .service-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .service-card h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.75rem;
-    color: var(--text);
-  }
-
-  .service-card p {
+  .service-item p {
     color: var(--text-muted);
     font-size: 0.95rem;
     line-height: 1.6;
-    margin-bottom: 1rem;
-  }
-
-  .visit-link {
-    display: inline-block;
-    color: var(--accent);
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: transform 0.2s;
-  }
-
-  .service-card:hover .visit-link {
-    transform: translateX(4px);
   }
 
   @media (max-width: 640px) {
@@ -136,21 +112,16 @@ const services = [
       padding: 0 1.5rem;
     }
 
-    h1 {
-      font-size: 2rem;
+    h2 {
+      font-size: 1.75rem;
     }
 
-    .intro {
-      font-size: 1rem;
+    .services-list {
+      gap: 1.25rem;
     }
 
-    .services-grid {
-      gap: 1.5rem;
-      grid-template-columns: 1fr;
-    }
-
-    .service-card {
-      padding: 1.5rem;
+    .service-item {
+      padding: 1rem 0;
     }
   }
 </style>
