@@ -2,7 +2,7 @@
 title: "不需要討好演算法"
 description: "已經有自己的網站了，為什麼還要討好演算法呢？"
 publishDate: 12-10-2025
-tags: ["Website", "Chinese (Taiwan)", "Viewpoint"]
+tags: ["短文", "Chinese (Taiwan)", "Viewpoint"]
 ---
 
 今天，我閱讀到 [Ivon 的一篇文章](https://ivonblog.com/posts/2025120401/)，有一段內容，我有一點異見 ~~他寫的政治文我異見更大~~，節錄內容如下：
