@@ -33,32 +33,185 @@ const { Content } = await post.render();
     max-width: 800px;
     margin: 0 auto;
     padding: 4rem 2rem;
+    line-height: 1.7;
   }
 
   h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    line-height: 1.2;
   }
 
   time {
     color: var(--text-muted);
     display: block;
     margin-bottom: 2rem;
+    font-size: 0.95rem;
   }
 
   .post-content :global(h2) {
-    margin-top: 2rem;
+    font-size: 2rem;
+    margin-top: 3rem;
     margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .post-content :global(h3) {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .post-content :global(h4) {
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
   }
 
   .post-content :global(p) {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .post-content :global(blockquote) {
+    margin: 2rem 0;
+    padding: 1rem 1.5rem;
+    border-left: 4px solid var(--accent, #3b82f6);
+    background-color: rgba(59, 130, 246, 0.05);
+    font-style: italic;
+    color: var(--text-secondary);
+  }
+
+  .post-content :global(blockquote p) {
+    margin-bottom: 0.5rem;
+  }
+
+  .post-content :global(blockquote p:last-child) {
+    margin-bottom: 0;
   }
 
   .post-content :global(pre) {
-    padding: 1rem;
-    border-radius: 4px;
+    padding: 1.25rem;
+    border-radius: 8px;
     overflow-x: auto;
-    margin: 1rem 0;
+    margin: 1.5rem 0;
+    background-color: #1e293b;
+    line-height: 1.5;
+  }
+
+  .post-content :global(code) {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+  }
+
+  .post-content :global(p code),
+  .post-content :global(li code) {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-size: 0.9em;
+    color: #e74c3c;
+  }
+
+  .post-content :global(ul),
+  .post-content :global(ol) {
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+  }
+
+  .post-content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  .post-content :global(ul ul),
+  .post-content :global(ol ol),
+  .post-content :global(ul ol),
+  .post-content :global(ol ul) {
+    margin: 0.5rem 0;
+  }
+
+  .post-content :global(a) {
+    color: var(--accent, #3b82f6);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .post-content :global(a:hover) {
+    border-bottom-color: var(--accent, #3b82f6);
+  }
+
+  .post-content :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 2rem 0;
+    display: block;
+  }
+
+  .post-content :global(hr) {
+    border: none;
+    border-top: 2px solid var(--border-color, #e5e7eb);
+    margin: 3rem 0;
+  }
+
+  .post-content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    overflow-x: auto;
+    display: block;
+  }
+
+  .post-content :global(th),
+  .post-content :global(td) {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color, #e5e7eb);
+  }
+
+  .post-content :global(th) {
+    font-weight: 600;
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+
+  .post-content :global(tr:hover) {
+    background-color: rgba(0, 0, 0, 0.01);
+  }
+
+  .post-content :global(strong) {
+    font-weight: 600;
+  }
+
+  .post-content :global(em) {
+    font-style: italic;
+  }
+
+  .post-content :global(del) {
+    text-decoration: line-through;
+    opacity: 0.7;
+  }
+
+  @media (max-width: 768px) {
+    .post-content {
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .post-content :global(h2) {
+      font-size: 1.5rem;
+    }
+
+    .post-content :global(blockquote) {
+      padding: 0.75rem 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .post-content :global(pre) {
+      padding: 1rem;
+      font-size: 0.85rem;
+    }
   }
 </style>
