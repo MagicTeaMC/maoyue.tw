@@ -2,23 +2,32 @@
 const skills = [
   {
     title: "Coding",
-    description: "I use Rust for most of my projects, Java for Paper plugins, and C++ for Competitive Programming! You can go to my GitHub page to see what I made."
+    description:
+      "I use Rust for most of my projects, Java for Paper plugins, and C++ for Competitive Programming! You can go to my GitHub page to see what I made."
   },
   {
     title: "Minecraft Server Management",
-    description: "I maintain a small Minecraft server. I made some plugins and add many special gameplays for the server."
+    description:
+      "I maintain a small Minecraft server. I made some plugins and add many special gameplays for the server."
   },
   {
     title: "BGP",
-    description: "Though I don't have an ASN in clearnet, I am a DN42 player. My DN42 ASN is AS4242423942, welcome to peer with me! (BTW, you can view this page on https://cat.dn42 if you can access DN42 network)"
+    description:
+      "Though I don't have an ASN in clearnet, I am a DN42 player. My DN42 ASN is AS4242423942, welcome to peer with me!",
+    linkUrl: "https://cat.dn42",
+    linkLabel: "cat.dn42",
+    linkPrefix: "BTW, you can view this page on ",
+    linkSuffix: " (accessible inside DN42 network)"
   },
   {
     title: "Linux",
-    description: "I use Arch Linux on my main computer, BTW! And some of my server is running Debian GNU/Linux. I hope to dive deeper into Linux in the future."
+    description:
+      "I use Arch Linux on my main computer, BTW! And some of my server is running Debian GNU/Linux. I hope to dive deeper into Linux in the future."
   },
   {
     title: "Something else...?",
-    description: "I like to try and challenge something I've never tried before, maybe I'm working on something new at this time?"
+    description:
+      "I like to try and challenge something I've never tried before, maybe I'm working on something new at this time?"
   }
 ];
 ---
@@ -30,7 +39,19 @@ const skills = [
       {skills.map((skill) => (
         <li class="skill-item">
           <h3>{skill.title}</h3>
-          <p>{skill.description}</p>
+          <p>
+            {skill.description}
+            {skill.linkUrl && (
+              <>
+                {" "}
+                {skill.linkPrefix}
+                <a href={skill.linkUrl} target="_blank" rel="noopener noreferrer">
+                  {skill.linkLabel}
+                </a>
+                {skill.linkSuffix}
+              </>
+            )}
+          </p>
         </li>
       ))}
     </ul>
