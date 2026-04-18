@@ -139,4 +139,4 @@ User-agent: YouBot
 User-agent: ZanistaBot
 Disallow: /
 
-Sitemap: https://www.milkteamc.org/sitemap.xml
+Sitemap: https://maoyue.tw/sitemap-index.xml
