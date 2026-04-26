@@ -7,4 +7,7 @@ import playformCompress from '@playform/compress';
 export default defineConfig({
   site: 'https://maoyue.tw',
   integrations: [sitemap(), playformCompress()],
+  build: {
+      inlineStylesheets: 'never',
+  },
 });
