@@ -13,14 +13,8 @@ import Footer from '../components/Footer.astro';
       <section class="card">
         <div class="card-header">
           <span class="label">Fingerprint</span>
-          <button class="copy-btn" id="copyBtn" aria-label="Copy fingerprint">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-            </svg>
-            <span id="copyLabel">Copy</span>
-          </button>
         </div>
-        <pre class="fingerprint" id="fingerprint"><code>pub   ed25519 2026-04-19 [SC]
+        <pre class="fingerprint"><code>pub   ed25519 2026-04-19 [SC]
       B9AE 362B F898 1D7C 617A  7CD4 01DA 5E6E 1222 A680
 uid           [ultimate] Maoyue &lt;maoyuetw@proton.me&gt;
 sub   cv25519 2026-04-19 [E]</code></pre>
@@ -86,24 +80,6 @@ sub   cv25519 2026-04-19 [E]</code></pre>
   <Footer />
 </Layout>
 
-<script>
-  const btn = document.getElementById('copyBtn');
-  const label = document.getElementById('copyLabel');
-  const fingerprint = document.getElementById('fingerprint')?.innerText ?? '';
-
-  btn?.addEventListener('click', async () => {
-    await navigator.clipboard.writeText(fingerprint);
-    if (label) label.textContent = 'Copied!';
-    btn.classList.add('copied');
-    setTimeout(() => {
-      if (label) label.textContent = 'Copy';
-      btn.classList.remove('copied');
-    }, 2000);
-  });
-
-  // (no live checks)
-</script>
-
 <style>
   .gpg-page {
     min-height: calc(100vh - 120px);
@@ -125,7 +101,6 @@ sub   cv25519 2026-04-19 [E]</code></pre>
     margin-bottom: 2.5rem;
   }
 
-  /* Fingerprint card */
   .card {
     border: 1px solid var(--border);
     border-radius: 8px;
@@ -135,7 +110,6 @@ sub   cv25519 2026-04-19 [E]</code></pre>
 
   .card-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 0.6rem 1rem;
     background: #222;
@@ -147,26 +121,6 @@ sub   cv25519 2026-04-19 [E]</code></pre>
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--text-muted);
-  }
-
-  .copy-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.35rem;
-    background: none;
-    border: 1px solid var(--border);
-    color: var(--text-muted);
-    font-size: 0.75rem;
-    padding: 0.25rem 0.6rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: color 0.15s, border-color 0.15s;
-  }
-
-  .copy-btn:hover,
-  .copy-btn.copied {
-    color: var(--accent);
-    border-color: var(--accent);
   }
 
   .fingerprint {
@@ -183,7 +137,6 @@ sub   cv25519 2026-04-19 [E]</code></pre>
     color: #c9d1d9;
   }
 
-  /* Trust warning */
   .trust-warning {
     display: flex;
     gap: 0.85rem;
@@ -220,6 +173,10 @@ sub   cv25519 2026-04-19 [E]</code></pre>
     margin: 0;
   }
 
+  .trust-body + .trust-body {
+    margin-top: 0.6rem;
+  }
+
   .trust-body strong {
     color: var(--text);
     font-weight: 500;
@@ -234,7 +191,6 @@ sub   cv25519 2026-04-19 [E]</code></pre>
     color: #86efac;
   }
 
-  /* Action buttons */
   .actions {
     display: flex;
     gap: 0.75rem;
@@ -274,7 +230,6 @@ sub   cv25519 2026-04-19 [E]</code></pre>
     color: var(--accent);
   }
 
-  /* Usage section */
   .usage h2 {
     font-size: 1rem;
     text-transform: uppercase;

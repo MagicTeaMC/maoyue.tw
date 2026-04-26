@@ -1,7 +1,6 @@
 ---
 import favicon from '../assets/favicon.png';
 ---
-
 <header>
   <nav>
     <div class="container">
@@ -26,6 +25,7 @@ import favicon from '../assets/favicon.png';
     </div>
   </nav>
 </header>
+
 <style>
   header {
     position: sticky;
@@ -131,29 +131,5 @@ import favicon from '../assets/favicon.png';
     }
   }
 </style>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    
-    menuToggle?.addEventListener('click', () => {
-      menuToggle.classList.toggle('active');
-      navLinks?.classList.toggle('active');
-    });
-    
-    navLinks?.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        menuToggle?.classList.remove('active');
-        navLinks?.classList.remove('active');
-      });
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('nav')) {
-        menuToggle?.classList.remove('active');
-        navLinks?.classList.remove('active');
-      }
-    });
-  });
-</script>
+
+<script is:inline src="/scripts/header.js"></script>

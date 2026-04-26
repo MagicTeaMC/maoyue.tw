@@ -9,14 +9,9 @@ const images = import.meta.glob<{ default: ImageMetadata }>('../assets/gallery/*
 const imageList = await Promise.all(
   Object.entries(images).map(async ([path, image]) => {
     const img = await image();
-    const optimizedImage = await getImage({ src: img.default });
+    const optimized = await getImage({ src: img.default });
     const filename = path.split('/').pop()?.split('.')[0] || 'Gallery image';
-    return {
-      src: optimizedImage.src,
-      alt: filename,
-      filename: filename,
-      path: path,
-    };
+    return { src: optimized.src, alt: filename, filename };
   })
 );
 
@@ -25,34 +20,29 @@ imageList.sort((a, b) => {
   const numB = parseInt(b.filename.match(/\d+/)?.[0] || '0');
   return numB - numA;
 });
+
+const galleryHtml = imageList.map(({ src, alt }) =>
+  `<a class="gallery-item" href="${src}" target="_blank" rel="noopener" aria-label="${alt}">` +
+  `<img src="${src}" alt="${alt}" loading="lazy" />` +
+  `</a>`
+).join('');
 ---
 
 <Layout title="Gallery - Maoyue">
   <Header />
-  
+
   <main class="gallery-page">
     <div class="container">
       <h1>Gallery</h1>
-      
-      {imageList.length > 0 ? (
-        <div class="gallery-grid">
-          {imageList.map((image, index) => (
-            <div class="gallery-item">
-              <img 
-                src={image.src} 
-                alt={image.alt} 
-                loading="lazy"
-              />
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div class="empty-state">
-        </div>
+
+      {imageList.length === 0 && <div class="empty-state"></div>}
+
+      {imageList.length > 0 && (
+        <div class="gallery-grid" set:html={galleryHtml} />
       )}
     </div>
   </main>
-  
+
   <Footer />
 </Layout>
 
@@ -61,100 +51,74 @@ imageList.sort((a, b) => {
     min-height: calc(100vh - 200px);
     padding: 4rem 0;
   }
-  
+
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
   }
-  
+
   h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
     color: var(--text);
   }
-  
-  .subtitle {
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    margin-bottom: 3rem;
-  }
-  
+
   .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.5rem;
     margin-top: 2rem;
   }
-  
-  .gallery-item {
-    position: relative;
+
+  :global(.gallery-item) {
+    display: block;
     overflow: hidden;
     border-radius: 8px;
     background: var(--border);
     aspect-ratio: 1;
-    cursor: pointer;
     transition: transform 0.3s ease;
   }
-  
-  .gallery-item img {
+
+  :global(.gallery-item:hover) {
+    transform: scale(1.02);
+  }
+
+  :global(.gallery-item img) {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.3s ease;
   }
-  
+
   .empty-state {
     text-align: center;
     padding: 4rem 2rem;
     color: var(--text-muted);
   }
-  
-  .empty-state code {
-    background: var(--border);
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-    font-size: 0.9rem;
-  }
-  
+
   @media (max-width: 768px) {
     .gallery-page {
       padding: 2rem 0;
     }
-    
+
     h1 {
       font-size: 2rem;
     }
-    
+
     .gallery-grid {
       grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
       gap: 1rem;
     }
-    
+
     .container {
       padding: 0 1.5rem;
     }
   }
-  
+
   @media (max-width: 480px) {
     .gallery-grid {
       grid-template-columns: 1fr 1fr;
     }
   }
 </style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    
-    galleryItems.forEach(item => {
-      item.addEventListener('click', () => {
-        const img = item.querySelector('img');
-        if (img) {
-          window.open(img.src, '_blank');
-        }
-      });
-    });
-  });
-</script>
