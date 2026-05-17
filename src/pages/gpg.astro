@@ -10,54 +10,33 @@ import Footer from '../components/Footer.astro';
       <h1>GPG Key</h1>
       <p class="subtitle">Use this key to send me encrypted messages or verify my signatures.</p>
 
-      <section class="card">
-        <div class="card-header">
-          <span class="label">Fingerprint</span>
-        </div>
-        <pre class="fingerprint"><code>pub   ed25519 2026-04-19 [SC]
+      <section class="fingerprint-section">
+        <div class="card">
+          <div class="card-header">
+            <span class="label">Fingerprint</span>
+          </div>
+          <pre class="fingerprint"><code>pub   ed25519 2026-04-19 [SC]
       B9AE 362B F898 1D7C 617A  7CD4 01DA 5E6E 1222 A680
 uid           [ultimate] Maoyue &lt;maoyuetw@proton.me&gt;
 sub   cv25519 2026-04-19 [E]</code></pre>
-      </section>
-
-      <section class="trust-warning" role="alert" aria-label="Security notice">
-        <div class="trust-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
-        </div>
-        <div class="trust-content">
-          <p class="trust-title">Verify you're on the right site</p>
-          <p class="trust-body">
-            <strong>Only trust this key if you fetched it directly from
-            https://maoyue.tw/gpg.</strong>
-            Before importing, confirm your browser shows a valid HTTPS padlock and the
-            URL begins with <code>https://</code>, not <code>http://</code>.
-            If you received this key via email, a third-party mirror, or any other
-            channel, verify the fingerprint independently before trusting it.
-          </p>
-          <p class="trust-body">
-            <strong>Do not import this key from any public key server.</strong>
-            Keys on those servers can be uploaded by <em>anyone</em>, meaning a malicious
-            actor could publish a forged key under this identity with no verification
-            whatsoever.
-          </p>
+          <div class="card-footer">
+            <a href="/pubkey.txt" target="_blank" rel="noopener">
+              pubkey.txt
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+            </a>
+          </div>
         </div>
       </section>
 
-      <section class="actions">
-        <a href="/pubkey.txt" class="btn btn-primary" download>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
-          </svg>
-          Download Public Key
-        </a>
-        <a href="/pubkey.txt" class="btn btn-secondary" target="_blank" rel="noopener">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
-          </svg>
-          View Raw
-        </a>
+      <section class="trust-notice">
+        <h2>Security Notice</h2>
+        <h3>Verify the source</h3>
+        <p>Only trust this key if you fetched it directly from https://maoyue.tw. Verify the fingerprint independently if received via email or third-party sources.</p>
+        
+        <h3>Avoid public key servers</h3>
+        <p>Do not import from public key servers. Anyone can upload forged keys with no verification.</p>
       </section>
 
       <section class="usage">
@@ -101,11 +80,26 @@ sub   cv25519 2026-04-19 [E]</code></pre>
     margin-bottom: 2.5rem;
   }
 
+  section {
+    margin-bottom: 3rem;
+  }
+
+  section h2 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 1.2rem;
+  }
+
+  section:first-of-type {
+    margin-bottom: 3.5rem;
+  }
+
   .card {
     border: 1px solid var(--border);
     border-radius: 8px;
     overflow: hidden;
-    margin-bottom: 1.5rem;
   }
 
   .card-header {
@@ -123,6 +117,30 @@ sub   cv25519 2026-04-19 [E]</code></pre>
     color: var(--text-muted);
   }
 
+  .card-footer {
+    padding: 0.15rem 0.85rem;
+    background: #1a1a1a;
+    border-top: 1px solid var(--border);
+  }
+
+  .card-footer a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    transition: color 0.15s;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  }
+
+  .card-footer a:hover {
+    color: var(--accent);
+  }
+
+  .card-footer svg {
+    opacity: 0.6;
+  }
+
   .fingerprint {
     margin: 0;
     padding: 1.25rem 1rem;
@@ -135,107 +153,6 @@ sub   cv25519 2026-04-19 [E]</code></pre>
     font-size: 0.82rem;
     line-height: 1.7;
     color: #c9d1d9;
-  }
-
-  .trust-warning {
-    display: flex;
-    gap: 0.85rem;
-    align-items: flex-start;
-    padding: 1rem 1.1rem;
-    border: 1px solid #2a3a2a;
-    border-radius: 8px;
-    background: #0f1f0f;
-    margin-bottom: 1.5rem;
-  }
-
-  .trust-icon {
-    flex-shrink: 0;
-    margin-top: 0.1rem;
-    color: #4ade80;
-  }
-
-  .trust-content {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .trust-title {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: #4ade80;
-    margin: 0 0 0.4rem;
-  }
-
-  .trust-body {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    line-height: 1.65;
-    margin: 0;
-  }
-
-  .trust-body + .trust-body {
-    margin-top: 0.6rem;
-  }
-
-  .trust-body strong {
-    color: var(--text);
-    font-weight: 500;
-  }
-
-  .trust-body code {
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
-    font-size: 0.78rem;
-    background: #1a2a1a;
-    padding: 0.1em 0.35em;
-    border-radius: 3px;
-    color: #86efac;
-  }
-
-  .actions {
-    display: flex;
-    gap: 0.75rem;
-    margin-bottom: 2.5rem;
-    flex-wrap: wrap;
-  }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.6rem 1.1rem;
-    border-radius: 6px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    transition: opacity 0.15s, background 0.15s;
-  }
-
-  .btn-primary {
-    background: var(--accent);
-    color: #111;
-  }
-
-  .btn-primary:hover {
-    background: var(--accent-hover);
-    color: #111;
-  }
-
-  .btn-secondary {
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--text);
-  }
-
-  .btn-secondary:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
-  .usage h2 {
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--text-muted);
-    margin-bottom: 1rem;
   }
 
   .code-block {
@@ -266,5 +183,32 @@ sub   cv25519 2026-04-19 [E]</code></pre>
     font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
     font-size: 0.82rem;
     color: var(--accent);
+  }
+
+  .trust-notice {
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: var(--text-muted);
+  }
+
+  .trust-notice h3 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin: 0 0 0.5rem;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .trust-notice h3:not(:first-of-type) {
+    margin-top: 1.5rem;
+  }
+
+  .trust-notice p {
+    margin: 0 0 0.6rem;
+  }
+
+  .trust-notice p:last-child {
+    margin-bottom: 0;
   }
 </style>
