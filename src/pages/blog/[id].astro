@@ -2,20 +2,17 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry, render } from 'astro:content';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
-  return posts.map(post => ({
-    params: { slug: post.slug },
-    props: { post },
-  }));
+  return posts.map(post => ({ params: { id: post.id } }));
 }
 
-const { post } = Astro.props;
-const { Content } = await post.render();
+const post = await getEntry('blog', Astro.params.id);
+if (!post) throw new Error('Post not found');
+const { Content } = await render(post);
 ---
-
 <Layout title={post.data.title}>
   <Header />
   <main>
