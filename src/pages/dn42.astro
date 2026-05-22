@@ -1,0 +1,153 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="DN42 Peering - Maoyue" description="Peering information for MAOYUE-MNT on the DN42 network">
+  <Header />
+  <main class="dn42-page">
+    <div class="container">
+      <h1>DN42 Peering</h1>
+      <p class="subtitle">I accept new peers on DN42.</p>
+
+      <section class="info-section">
+        <p>
+          To peer with me, please reach out via 
+          <a href="https://t.me/as4242423942" target="_blank" rel="noopener">Telegram channel</a> 
+          using channel direct messages, or check <a href="https://maoyue.tw/#contact" target="_blank">maoyue.tw/#contact</a> for other methods. 
+        </p>
+        <p><strong>ASN:</strong> <code>4242423942</code></p>
+
+        <h3>Requirements</h3>
+        <ul>
+          <li>Must use WireGuard.</li>
+          <li>Must be dual-stack.</li>
+          <li>Prefer IPv6 Link-Local Address and Extended Next Hop enabled.</li>
+          <li>Latency to my node must be less than 30ms (or a reasonable latency).</li>
+          <li>Contact (via Telegram or Email) must be accessible.</li>
+        </ul>
+      </section>
+
+      <section class="nodes-section">
+        <h2>Nodes</h2>
+
+        <div class="node">
+          <h3>LAX2 (Los Angeles)</h3>
+          <pre><code>WireGuard Endpoint : 192.161.163.236:2&lt;last_four_digits_of_ASN&gt;
+WireGuard PubKey   : vUtdpRO5g/sTLW005E8nZAMoYEkoJk9qU+aHIK2iYTM=
+
+IPv6 LLA           : fe80::3942
+IPv6 ULA           : fd64:1989:604:1::1
+IPv4               : 172.21.66.66</code></pre>
+        </div>
+
+        <div class="node">
+          <h3>HKG1 (Hong Kong)</h3>
+          <pre><code>WireGuard Endpoint : 74.122.25.10:2&lt;last_four_digits_of_ASN&gt;
+WireGuard PubKey   : 9KVXyFVmxqYIgKwiBLzyKTTTXxC404nFCShfR2zGmSo=
+
+IPv6 LLA           : fe80::3942
+IPv6 ULA           : fd64:1989:604:3::1
+IPv4               : 172.21.82.2</code></pre>
+        </div>
+      </section>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .dn42-page {
+    min-height: calc(100vh - 120px);
+    padding: 4rem 1.5rem;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+  }
+
+  section {
+    margin-bottom: 3rem;
+  }
+
+  section h2 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+  }
+
+  .info-section p {
+    margin-bottom: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .info-section code {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    color: var(--accent);
+    background: #111;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+  }
+
+  .info-section h3 {
+    font-size: 0.9rem;
+    margin: 1.5rem 0 0.5rem;
+    color: var(--text);
+  }
+
+  .info-section ul {
+    color: var(--text-muted);
+    padding-left: 1.25rem;
+  }
+
+  .info-section li {
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+  }
+
+  .info-section strong {
+    color: var(--text);
+  }
+
+  .node {
+    margin-bottom: 2rem;
+  }
+
+  .node h3 {
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+  }
+
+  .node pre {
+    margin: 0;
+    padding: 1.25rem;
+    background: #111;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow-x: auto;
+  }
+
+  .node code {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: #c9d1d9;
+  }
+</style>
