@@ -8,11 +8,6 @@ import favicon from '../assets/favicon.png';
         <img src={favicon.src} alt="Maoyue" class="avatar" />
         <span>Maoyue</span>
       </a>
-      <button class="menu-toggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
       <ul class="nav-links">
         <li><a href="/#contact">Contact</a></li>
         <li><a href="/blog">Blog</a></li>
@@ -33,9 +28,11 @@ import favicon from '../assets/favicon.png';
     border-bottom: 1px solid var(--border);
     z-index: 100;
   }
+  
   nav {
     padding: 1rem 0;
   }
+  
   .container {
     max-width: 900px;
     margin: 0 auto;
@@ -43,8 +40,9 @@ import favicon from '../assets/favicon.png';
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
+    gap: 2rem;
   }
+  
   .logo {
     font-size: 1.25rem;
     font-weight: 600;
@@ -52,83 +50,73 @@ import favicon from '../assets/favicon.png';
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    flex-shrink: 0; /* Logo doesn't shrink */
   }
+  
   .avatar {
     width: 36px;
     height: 36px;
     border-radius: 50%;
     object-fit: cover;
   }
-  .menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 4px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
-  }
-  .menu-toggle span {
-    width: 24px;
-    height: 2px;
-    background: var(--text);
-    transition: all 0.3s;
-  }
-  .menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-  .menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-  }
-  .menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
-  }
+  
   .nav-links {
     display: flex;
     gap: 2rem;
     list-style: none;
   }
+  
   .nav-links a {
     color: var(--text-muted);
     font-size: 0.95rem;
+    white-space: nowrap; /* Prevents link text from wrapping */
   }
+  
   .nav-links a:hover {
     color: var(--accent);
   }
+  
   @media (max-width: 640px) {
     .container {
       padding: 0 1.5rem;
+      gap: 1rem;
     }
-    .menu-toggle {
-      display: flex;
-      z-index: 101;
+    
+    .logo span {
+      display: none; /* Hide "Maoyue" text, keep avatar only */
     }
+    
     .nav-links {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 70%;
-      max-width: 300px;
-      height: 100vh;
-      background: var(--bg);
-      border-left: 1px solid var(--border);
-      flex-direction: column;
-      gap: 0;
-      padding: 5rem 0 2rem;
-      transition: right 0.3s ease;
+      gap: 1.5rem;
+      overflow-x: auto;
+      overflow-y: hidden;
+      /* Smooth scrolling */
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      /* Hide scrollbar but keep functionality */
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE/Edge */
+      /* Gradient fade on right edge */
+      mask-image: linear-gradient(
+        to right,
+         black 0%,
+         black calc(100% - 40px),
+        transparent 100%
+      );
+      -webkit-mask-image: linear-gradient(
+        to right,
+         black 0%,
+         black calc(100% - 40px),
+        transparent 100%
+      );
     }
-    .nav-links.active {
-      right: 0;
+    
+    .nav-links::-webkit-scrollbar {
+      display: none; /* Chrome/Safari */
     }
-    .nav-links li {
-      border-bottom: 1px solid var(--border);
-    }
+    
     .nav-links a {
-      display: block;
-      padding: 1rem 2rem;
-      font-size: 1rem;
+      font-size: 0.9rem;
     }
   }
 </style>
-
-<script is:inline src="/scripts/header.js"></script>
