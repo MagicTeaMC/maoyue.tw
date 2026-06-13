@@ -10,10 +10,10 @@ tags: ["Digital rights", "Chinese (Taiwan)", "Viewpoint"]
 
 你瀏覽網站時有看過這樣的情況嗎？
 ![2025 年時 azurewebsites.net 被 RPZ](../../assets/rpz.png)
-所謂「封網」，實際上叫做 RPZ。簡單來講，就是一個由 TWNIC（財團法人台灣網路資訊中心，負責管理臺灣網路資源）負責維護一個清單，而臺灣業者的 DNS 伺服器去配合停止解析這些網域（網站）。  
-上面這張圖片，是在 2025 年時，TWNIC 封鎖了 Microsoft Azure 的 azurewebsites.net 網域，導致大量依賴 Azure 的服務下線，[甚至 TWNIC 自己的公文系統都被封鎖](https://www.ithome.com.tw/news/170025)。  
+所謂「封網」，實際上叫做 [RPZ](https://rpz.twnic.tw/#/technology#main)。簡單來講，就是一個由 TWNIC（財團法人台灣網路資訊中心，負責管理臺灣網路資源）負責維護一個清單，而臺灣業者的 DNS 伺服器去配合停止解析這些網域（網站）。  
+上面這張圖片，是在 2025 年時，TWNIC 封鎖了 [Microsoft Azure](https://zh.wikipedia.org/wiki/Microsoft_Azure) 的 azurewebsites.net 網域，導致大量依賴 Azure 的服務下線，[甚至 TWNIC 自己的公文系統都被封鎖](https://www.ithome.com.tw/news/170025)。  
 
-除了 Microsoft Azure 以外，過去也曾經錯誤封鎖如 eu.org（老牌免費網域申請，例如我申請的 <https://maoyue.eu.org>）、Telegram 等知名平台。[來源（Facebook）](https://www.facebook.com/seadog007/posts/%E7%B9%BC-twnic-%E6%8A%8A-searchappeuorgtelegram-telegramorghls-playerhlsplayerorg-%E8%B7%9F-archivetoda/24669481765979124/)  
+除了 Microsoft Azure 以外，過去也曾經錯誤封鎖如 eu.org（老牌免費子網域申請平台，例如我申請的 <https://maoyue.eu.org>）、[Telegram](https://zh.wikipedia.org/wiki/Telegram) 等知名平台。[來源（Facebook）](https://www.facebook.com/seadog007/posts/%E7%B9%BC-twnic-%E6%8A%8A-searchappeuorgtelegram-telegramorghls-playerhlsplayerorg-%E8%B7%9F-archivetoda/24669481765979124/)  
 而這些封鎖，完全不公開、不透明。一般人無從得知 TWNIC 的清單中有哪些網站。只需要行政機關發函給 TWNIC，就會將網域納入封鎖。
 
 現在，政府希望繼續擴權。  
@@ -29,5 +29,5 @@ tags: ["Digital rights", "Chinese (Taiwan)", "Viewpoint"]
 [民間司法改革基金會對此草案提出了具體的修改建議](https://www.jrf.org.tw/articles/3211)，值得關注。
 問題從來不是要不要保護兒少，而是在什麼樣的監督和透明度下進行。
 一個連自己的公文系統都曾被誤封的機構，以及一套非常不透明的封鎖機制，是否真的有資格繼續擴權？
-如果社會不開始認真討論這件事，等到法案通過，再回頭看才發現網路自由已經悄悄縮小了。
+如果社會不開始認真討論這件事，等到法案通過，再回頭看才發現，網路自由已經悄悄縮小了。
 
