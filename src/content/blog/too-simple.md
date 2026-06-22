@@ -24,7 +24,7 @@ tags: ["Age verification", "Chinese (Taiwan)", "Viewpoint"]
 在 [Privacy Policy \ Anthropic](https://www.anthropic.com/legal/privacy) 中：
 > We may use your Inputs and Outputs to train and improve Anthropic AI models, unless you opt out through your account settings. **Even if you opt-out, we will use Inputs and Outputs for model improvement when: (i) your conversations are flagged for safety review** to improve our ability to detect harmful content, enforce our policies, or advance AI safety research, or (ii) you've explicitly reported the materials to us (for example via our feedback mechanisms).  
 
-由此可見，只要 Anthropic 的系統「偵測到異常」，他們即可直接查看你的對話。這就代表，即使他們的系統如實運作（看起來有...嗎？），只要發生類似[臉書「大規模誤判」](https://www.setn.com/News.aspx?NewsID=1856880)的情形（臉書自己說這是系統異常），Anthropic 就可以「合法的」翻閱你的對話紀錄。萬一曾與 AI 討論過公司的機密技術，此刻卻可能變成他們資料庫中的公開檔案，而現在還得被迫實名認證來證明自己不是小孩，這豈不荒謬？而你在創帳號時已經匆匆點過「我同意」了。
+由此可見，只要 Anthropic 的系統「偵測到異常」，他們即可直接查看你的對話。這就代表，即使他們的系統如實運作（看起來有...嗎？），只要發生類似[臉書「大規模誤判」](https://www.setn.com/News.aspx?NewsID=1856880)的情形（臉書自己說這是系統異常），Anthropic 就可以「合法的」翻閱你的對話紀錄。曾與 AI 討論過公司的機密技術，此刻卻可能變成他們資料庫中的公開檔案，而現在還得被迫實名認證來證明自己不是小孩，這豈不荒謬？而你在創帳號時已經匆匆點過「我同意」了。
 
 雲端服務隨時可以透過他們[躼躼長（lò-lò-tn̂g）](https://sutian.moe.edu.tw/zh-hant/su/29794/)的服務條款，終止用戶的訪問權限，而用戶未必有能力與其抗爭。  
 所以，無論如何都要留一個備胎。[LM Studio](https://lmstudio.ai/) 和 [Ollama](https://ollama.com/) 都是很實用的替代品。
