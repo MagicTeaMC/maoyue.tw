@@ -4,14 +4,22 @@ const currentYear = new Date().getFullYear();
 
 <footer>
   <div class="container">
-      <p>GNU GPL-3.0 License and CC BY-SA 4.0 License &copy; 2024-{currentYear} Maoyue. This website is <a href=https://git.maoyue.tw/Maoyue/maoyue.tw.git target=_blank>free software / open source</a> and built with <a href=https://astro.build target=_blank>Astro</a>.</p>
+    <p>
+        &copy; {currentYear} Maoyue. Content licensed under 
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>. 
+        This website is 
+        <a href="https://git.maoyue.tw/Maoyue/maoyue.tw.git" target="_blank" rel="noopener noreferrer">free software</a>,
+        licensed under the
+        <a href="https://www.gnu.org/licenses/" target="_blank" rel="noopener noreferrer">GNU GPL-3.0-or-later</a>
+        and built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>.
+    </p>
   </div>
 </footer>
 
 <style>
   footer {
     padding: 3rem 0 2rem;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--border, #e5e7eb);
   }
 
   .container {
@@ -22,8 +30,9 @@ const currentYear = new Date().getFullYear();
   }
 
   p {
-    color: var(--text-muted);
+    color: var(--text-muted, #4b5563);
     font-size: 0.875rem;
+    line-height: 1.5;
   }
 
   @media (max-width: 640px) {
