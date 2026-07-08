@@ -17,6 +17,7 @@ import Footer from '../components/Footer.astro';
           </div>
           <pre class="fingerprint"><code>pub   ed25519 2026-04-19 [SC]
       B9AE 362B F898 1D7C 617A  7CD4 01DA 5E6E 1222 A680
+uid           [ultimate] Maoyue &lt;maoyue@disroot.org&gt;
 uid           [ultimate] Maoyue &lt;maoyuetw@proton.me&gt;
 sub   cv25519 2026-04-19 [E]</code></pre>
           <div class="card-footer">
@@ -47,7 +48,7 @@ sub   cv25519 2026-04-19 [E]</code></pre>
         </div>
         <div class="code-block">
           <span class="code-label">Encrypt a file</span>
-          <pre><code>gpg --encrypt --recipient maoyuetw@proton.me secret.txt</code></pre>
+          <pre><code>gpg --encrypt --armor --recipient maoyue@disroot.org secret.txt</code></pre>
         </div>
         <div class="code-block">
           <span class="code-label">Verify a signature</span>
