@@ -1,70 +1,87 @@
 ---
 const contacts = [
-  { platform: "Email", handle: "maoyue@disroot.org", url: "mailto:maoyue@disroot.org" },
-  { platform: "XMPP", handle: "maoyue@xmpp.is", url: "https://xmpp.link/#maoyue@xmpp.is" },
-  { platform: "Matrix", handle: "@maoyue:private.coffee", url: "https://matrix.to/#/@maoyue:private.coffee" }
+    {
+        platform: "Email",
+        handle: "maoyue@maoyue.tw",
+        url: "mailto:maoyue@maoyue.tw",
+    },
+    {
+        platform: "XMPP",
+        handle: "maoyue@xmpp.is",
+        url: "https://xmpp.link/#maoyue@xmpp.is",
+    },
+    {
+        platform: "Matrix",
+        handle: "@maoyue:private.coffee",
+        url: "https://matrix.to/#/@maoyue:private.coffee",
+    },
 ];
 ---
+
 <section id="contact" class="contact">
-  <div class="container">
-    <h2>Contact</h2>
-    <div class="contact-grid">
-      {contacts.map((contact) => (
-        <div class="contact-item">
-          <span class="platform">{contact.platform}</span>
-          <a href={contact.url} target="_blank" rel="noopener noreferrer">
-            {contact.handle}
-          </a>
+    <div class="container">
+        <h2>Contact</h2>
+        <div class="contact-grid">
+            {contacts.map((contact) => (
+                <div class="contact-item">
+                    <span class="platform">{contact.platform}</span>
+                    <a
+                        href={contact.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {contact.handle}
+                    </a>
+                </div>
+            ))}
         </div>
-      ))}
     </div>
-  </div>
 </section>
 <style>
-  .contact {
-    padding: 4rem 0;
-    border-top: 1px solid var(--border);
-  }
-  .container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
-  .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1.5rem;
-  }
-  .contact-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-  .platform {
-    font-size: 0.875rem;
-    color: var(--text-muted);
-    font-weight: 500;
-  }
-  .contact-item a {
-    font-size: 0.95rem;
-  }
-  @media (max-width: 640px) {
     .contact {
-      padding: 3rem 0;
+        padding: 4rem 0;
+        border-top: 1px solid var(--border);
     }
     .container {
-      padding: 0 1.5rem;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 2rem;
     }
     h2 {
-      font-size: 1.75rem;
+        font-size: 2rem;
+        margin-bottom: 2rem;
     }
     .contact-grid {
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 1.25rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1.5rem;
     }
-  }
+    .contact-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    .platform {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+    .contact-item a {
+        font-size: 0.95rem;
+    }
+    @media (max-width: 640px) {
+        .contact {
+            padding: 3rem 0;
+        }
+        .container {
+            padding: 0 1.5rem;
+        }
+        h2 {
+            font-size: 1.75rem;
+        }
+        .contact-grid {
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1.25rem;
+        }
+    }
 </style>
